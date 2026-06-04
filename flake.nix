@@ -33,8 +33,7 @@
             inherit username;
           };
 
-          home-manager.users.${username} =
-            import ./home.nix;
+          home-manager.users.${username} = import ./home.nix;
         }
       ];
     };

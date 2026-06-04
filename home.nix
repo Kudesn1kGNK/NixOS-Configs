@@ -12,7 +12,5 @@
 
   home.packages = with pkgs; [
     kdePackages.kate
-    htop
-    git
   ];
 }

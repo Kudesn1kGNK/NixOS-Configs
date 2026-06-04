@@ -6,7 +6,8 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    ./hardware-configuration.nix
+    ./modules
   ];
 
   # Enable flakes
@@ -15,41 +16,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  fonts.packages = with pkgs; [
-    nerd-fonts._0xproto
-    nerd-fonts.fira-code
-  ];
-
-  programs.nix-ld.enable = true;
-
-  environment.variables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    SUDO_EDITOR = "nvim";
-  };
-
-  programs.git = {
-    enable = true;
-    config = {
-      init.defaultBranch = "main";
-      credential.helper = "store";
-    };
-  };
-
-  security.sudo.extraConfig = ''
-    Defaults env_keep+="SSH_TTY SSH_CONNECTION EDITOR VISUAL SUDO_EDITOR"
-  '';
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -124,15 +90,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    neovim
-    ripgrep
-    fd
-    gcc
-    curl
-    nodejs_26
-    tree-sitter
-    lazygit
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -143,17 +100,6 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -161,5 +107,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }

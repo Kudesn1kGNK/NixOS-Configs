@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # Define nerd-fonts for icons
   fonts.packages = with pkgs; [
     nerd-fonts.caskaydia-mono

@@ -9,6 +9,7 @@
 
         partitions = {
           ESP = {
+            name = "ESP";
             size = "512M";
             type = "EF00";
 
@@ -16,10 +17,12 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
+              mountOptions = [ "umask=0777" ];
             };
           };
 
           root = {
+            name = "root";
             size = "100%";
 
             content = {

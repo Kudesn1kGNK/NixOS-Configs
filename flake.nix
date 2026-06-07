@@ -24,7 +24,7 @@
       };
 
       modules = [
-        ./configuration.nix
+        ./nixos/configuration.nix
 
         home-manager.nixosModules.default
 
@@ -33,7 +33,7 @@
             inherit username;
           };
 
-          home-manager.users.${username} = import ./home.nix;
+          home-manager.users.${username} = import ./hm/default.nix;
         }
       ];
     };

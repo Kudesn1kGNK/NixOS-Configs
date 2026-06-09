@@ -1,4 +1,10 @@
 {
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 8192;
+    }
+  ];
   disko.devices = {
     disk.main = {
       type = "disk";

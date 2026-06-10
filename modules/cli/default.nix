@@ -3,5 +3,6 @@
     ./nvim.nix
     ./cargo.nix
     ./git.nix
+    ./clipboard.nix
   ];
 }

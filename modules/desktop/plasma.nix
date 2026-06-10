@@ -13,4 +13,11 @@
     variant = ",";
     options = "grp:ctrl_shift_toggle";
   };
+
+  # Disable screen turn off on timeout
+  services.xserver.displayManager.sessionCommands = ''
+    xset s off
+    xset -dmps
+    xset s noblank
+  '';
 }

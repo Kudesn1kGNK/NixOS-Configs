@@ -5,7 +5,6 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./disko.nix
     ../modules
   ];
 
@@ -18,6 +17,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
+  boot.loader.grub.device = "nodev";
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";

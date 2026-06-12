@@ -24,6 +24,7 @@
       file.hasExt "nix"
       && file.name != "flake.nix"
       && file.name != "disko.nix"
+      && file.name != "hardware-configuration.nix"
       && !lib.hasPrefix "_" file.name;
 
     importTree = path:

@@ -13,6 +13,7 @@
     imports = [
       self.nixosModules.system
       self.nixosModules.desktop
+      self.nixosModules.desktop-programs
     ];
 
     # Enable CUPS to print documents.

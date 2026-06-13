@@ -14,6 +14,7 @@
       self.nixosModules.system
       self.nixosModules.desktop
       self.nixosModules.desktop-programs
+      self.nixosModules.shell-programs
     ];
 
     # Enable CUPS to print documents.

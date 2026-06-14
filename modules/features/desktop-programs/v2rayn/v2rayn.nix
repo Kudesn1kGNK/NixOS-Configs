@@ -42,14 +42,36 @@
         '';
       };
     };
-  in {
-    systemd.tmpfiles.rules = [
-      "d /home/${user}/.local/share/v2rayN/bin/xray 0755 ${user} users -"
-      "d /home/${user}/.local/share/v2rayN/bin/sing_box 0755 ${user} users -"
 
-      "L+ /home/${user}/.local/share/v2rayN/bin/xray/xray - - - - ${xray.drv}/xray"
-      "L+ /home/${user}/.local/share/v2rayN/bin/sing_box/sing-box - - - - ${singBox.drv}/sing-box"
-    ];
+    v2raynConfigs = rec {
+      mkLinks = dir:
+        builtins.map (
+          f: "L+ /home/${user}/.local/share/v2rayN/${dir}/${f} - - - - ${drv}/${dir}/${f}"
+        ) (builtins.attrNames (builtins.readDir (./configs + "/${dir}")));
+      drv = pkgs.stdenvNoCC.mkDerivation {
+        pname = "v2rayn-configs";
+        version = "1.0";
+
+        src = ./configs;
+
+        installPhase = ''
+          mkdir -p $out/guiConfigs
+          cp -r guiConfigs/* $out/guiConfigs/
+        '';
+      };
+    };
+  in {
+    systemd.tmpfiles.rules =
+      [
+        "d /home/${user}/.local/share/v2rayN/bin/xray 0755 ${user} users -"
+        "d /home/${user}/.local/share/v2rayN/bin/sing_box 0755 ${user} users -"
+
+        "L+ /home/${user}/.local/share/v2rayN/bin/xray/xray - - - - ${xray.drv}/xray"
+        "L+ /home/${user}/.local/share/v2rayN/bin/sing_box/sing-box - - - - ${singBox.drv}/sing-box"
+
+        "d /home/${user}/.local/share/v2rayN/guiConfigs 0755 ${user} users -"
+      ]
+      ++ v2raynConfigs.mkLinks "guiConfigs";
 
     environment.systemPackages = with pkgs; [
       v2rayn

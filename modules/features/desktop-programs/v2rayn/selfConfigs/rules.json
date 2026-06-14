@@ -1,0 +1,16 @@
+[
+  {
+    "port": "",
+    "outboundTag": "direct",
+    "ip": [],
+    "domain": [
+      "regexp:\\.ru$",
+      "regexp:.*\\\\vk\\.com",
+      "vk.com",
+      "userapi.com"
+    ],
+    "process": [],
+    "enabled": true,
+    "remarks": ""
+  }
+]

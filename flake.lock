@@ -57,11 +57,28 @@
         "type": "github"
       }
     },
+    "nixpkgs-prism9": {
+      "locked": {
+        "lastModified": 1767141729,
+        "narHash": "sha256-qvs3FVReBno4A00RqlePLnzTx1V7rmKlYcRr7BRQO1U=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "3c1651866b37dd04d543604ae7dcd0913268a416",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "3c1651866b37dd04d543604ae7dcd0913268a416",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-prism9": "nixpkgs-prism9"
       }
     }
   },

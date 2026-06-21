@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.desktop-programs = {pkgs, ...}: {
+  flake.nixosModules.desktop-programs-gaming = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       steam-run
       steamtinkerlaunch

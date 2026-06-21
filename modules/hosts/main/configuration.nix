@@ -14,6 +14,8 @@
       self.nixosModules.system
       self.nixosModules.desktop
       self.nixosModules.desktop-programs
+      self.nixosModules.desktop-programs-gaming
+
       self.nixosModules.shell-programs
     ];
 

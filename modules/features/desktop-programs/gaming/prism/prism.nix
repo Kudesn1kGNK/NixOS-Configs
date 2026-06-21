@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.nixosModules.desktop-programs = {
+  flake.nixosModules.desktop-programs-gaming = {
     pkgs,
     config,
     ...

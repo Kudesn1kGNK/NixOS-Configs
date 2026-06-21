@@ -1,7 +1,5 @@
 {
-  flake.nixosModules.system = {lib, ...}: {
-    services.xserver.videoDrivers = [
-      "modesetting"
-    ];
+  flake.nixosModules.system-gpu-drivers-intel = {lib, ...}: {
+    services.xserver.videoDrivers = ["modesetting"];
   };
 }

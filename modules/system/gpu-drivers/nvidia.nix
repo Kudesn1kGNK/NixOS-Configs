@@ -1,8 +1,6 @@
 {
-  flake.nixosModules.system = {lib, ...}: {
-    services.xserver.videoDrivers = [
-      "nvidia"
-    ];
+  flake.nixosModules.system-gpu-drivers-nvidia = {lib, ...}: {
+    services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {
       modesetting.enable = true;

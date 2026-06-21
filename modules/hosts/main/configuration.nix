@@ -12,6 +12,12 @@
   flake.nixosModules.hostMain = {...}: {
     imports = [
       self.nixosModules.system
+
+      # self.nixosModules.system-gpu-drivers
+      # self.nixosModules.system-gpu-drivers-nvidia
+      # self.nixosModules.system-gpu-drivers-intel
+      # self.nixosModules.system-gpu-drivers-amd
+
       self.nixosModules.desktop
       self.nixosModules.desktop-programs
       self.nixosModules.desktop-programs-gaming

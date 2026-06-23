@@ -21,6 +21,7 @@
       self.nixosModules.desktop
       self.nixosModules.desktop-programs
       self.nixosModules.desktop-programs-gaming
+      self.nixosModules.desktop-programs-work
 
       self.nixosModules.shell-programs
       self.nixosModules.shell-programs-work

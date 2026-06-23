@@ -27,5 +27,15 @@
       viAlias = true;
       vimAlias = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      ripgrep
+      fd
+      gcc
+      curl
+      nodejs_26
+      tree-sitter
+      lazygit
+    ];
   };
 }

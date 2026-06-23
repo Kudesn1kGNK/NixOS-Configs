@@ -23,6 +23,7 @@
       self.nixosModules.desktop-programs-gaming
 
       self.nixosModules.shell-programs
+      self.nixosModules.shell-programs-work
     ];
 
     # Enable CUPS to print documents.

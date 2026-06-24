@@ -29,13 +29,14 @@
     };
 
     environment.systemPackages = with pkgs; [
-      ripgrep
-      fd
-      gcc
-      curl
-      nodejs_26
       tree-sitter
+      nodejs_26
       lazygit
+      ripgrep
+      unzip
+      curl
+      gcc
+      fd
     ];
   };
 }

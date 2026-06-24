@@ -30,7 +30,6 @@
 
     environment.systemPackages = with pkgs; [
       tree-sitter
-      nodejs_26
       lazygit
       ripgrep
       unzip

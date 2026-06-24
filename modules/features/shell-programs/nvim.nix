@@ -14,8 +14,8 @@
     };
   in {
     systemd.tmpfiles.rules = [
-      "d /home/${user}/.config/nvim 0755 ${user} users -"
-      "d /root/.config/nvim 0755 root users -"
+      "d /home/${user}/.config 0755 ${user} users -"
+      "d /root/.config 0755 root users -"
 
       "L+ /home/${user}/.config/nvim - - - - ${nvimConfig}"
       "L+ /root/.config/nvim - - - - ${nvimConfig}"

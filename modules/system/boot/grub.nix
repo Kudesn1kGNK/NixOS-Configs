@@ -1,7 +1,7 @@
 {
-  flake.nixosModules.system = {...}: {
-    # Bootloader.
+  flake.nixosModules.grub-boot = {...}: {
     boot.loader = {
+      systemd-boot.enable = false;
       # efi.canTouchEfiVariables = true;
 
       grub = {

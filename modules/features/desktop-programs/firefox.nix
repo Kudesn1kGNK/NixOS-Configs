@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.shell-programs = {...}: {
+  flake.nixosModules.desktop-programs = {...}: {
     programs.firefox = {
       enable = true;
 

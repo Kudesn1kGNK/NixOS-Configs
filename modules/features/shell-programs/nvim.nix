@@ -28,6 +28,10 @@
       vimAlias = true;
     };
 
+    security.sudo.extraConfig = ''
+      Defaults env_keep+="SSH_TTY SSH_CONNECTION EDITOR VISUAL SUDO_EDITOR"
+    '';
+
     environment.systemPackages = with pkgs; [
       tree-sitter
       lazygit

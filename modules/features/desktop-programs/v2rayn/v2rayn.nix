@@ -44,10 +44,13 @@
     };
 
     v2raynConfigs = rec {
-      mkLinks = dir:
-        builtins.map (
-          f: "L+ /home/${user}/.local/share/v2rayN/${dir}/${f} - - - - ${drv}/${dir}/${f}"
-        ) (builtins.attrNames (builtins.readDir (./configs + "/${dir}")));
+      mkFiles = dir:
+        builtins.listToAttrs (
+          builtins.map (f: {
+            name = ".local/share/v2rayN/${dir}/${f}";
+            value.source = "${drv}/${dir}/${f}";
+          }) (builtins.attrNames (builtins.readDir (./configs + "/${dir}")))
+        );
       drv = pkgs.stdenvNoCC.mkDerivation {
         pname = "v2rayn-configs";
         version = "1.0";
@@ -61,17 +64,13 @@
       };
     };
   in {
-    systemd.tmpfiles.rules =
-      [
-        "d /home/${user}/.local/share/v2rayN/bin/xray 0755 ${user} users -"
-        "d /home/${user}/.local/share/v2rayN/bin/sing_box 0755 ${user} users -"
+    home-manager.users.${user}.home.file =
+      {
+        ".local/share/v2rayN/bin/xray/xray".source = "${xray.drv}/xray";
 
-        "L+ /home/${user}/.local/share/v2rayN/bin/xray/xray - - - - ${xray.drv}/xray"
-        "L+ /home/${user}/.local/share/v2rayN/bin/sing_box/sing-box - - - - ${singBox.drv}/sing-box"
-
-        "d /home/${user}/.local/share/v2rayN/guiConfigs 0755 ${user} users -"
-      ]
-      ++ v2raynConfigs.mkLinks "guiConfigs";
+        ".local/share/v2rayN/bin/sing_box/sing-box".source = "${singBox.drv}/sing-box";
+      }
+      // v2raynConfigs.mkFiles "guiConfigs";
 
     environment.systemPackages = with pkgs; [
       v2rayn

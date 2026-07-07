@@ -6,10 +6,10 @@
 
     nixpkgs-prism9.url = "github:NixOS/nixpkgs/3c1651866b37dd04d543604ae7dcd0913268a416";
 
-    # home-manager = {
-    #   url = "github:nix-community/home-manager/release-26.05";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

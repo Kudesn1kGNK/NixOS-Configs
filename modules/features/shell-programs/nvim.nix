@@ -13,11 +13,13 @@
       hash = "sha256-9qhQEY9r1mXPdWdB5jdMGTKNkU++HhFIhxu8tw75g6M=";
     };
   in {
-    systemd.tmpfiles.rules = [
-      "d /home/${user}/.config 0755 ${user} users -"
-      "d /root/.config 0755 root users -"
+    home-manager.users.${user} = {
+      xdg.configFile."nvim".source = nvimConfig;
+    };
 
-      "L+ /home/${user}/.config/nvim - - - - ${nvimConfig}"
+    systemd.tmpfiles.rules = [
+      "d /root/.config 0755 root root -"
+
       "L+ /root/.config/nvim - - - - ${nvimConfig}"
     ];
 

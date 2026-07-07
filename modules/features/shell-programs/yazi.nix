@@ -1,23 +1,7 @@
 {
-  flake.nixosModules.shell-programs = {...}: {
-    programs.yazi = {
-      enable = true;
-      settings = {
-        yazi = {
-          ratio = [
-            1
-            4
-            3
-          ];
-          sort-by = "natural";
-          sort-sensitive = true;
-          sort-reverse = false;
-          sort-dir-first = true;
-          linemode = "none";
-          show-hidden = true;
-          show-symlink = true;
-        };
-      };
-    };
+  flake.nixosModules.shell-programs = {pkgs, ...}: {
+    environment.systemPackages = with pkgs; [
+      yazi
+    ];
   };
 }

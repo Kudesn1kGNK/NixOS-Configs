@@ -35,6 +35,7 @@
     '';
 
     environment.systemPackages = with pkgs; [
+      trash-cli
       tree-sitter
       lazygit
       ripgrep
